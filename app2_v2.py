@@ -15,7 +15,7 @@ def index():
 
 @app.route('/teste2')
 def index2():
-    return render_template('testejson2.html')
+    return render_template('exemplo.html')
 
 
 @app.route('/teste3')
@@ -45,6 +45,17 @@ def say_name2():
     print(first)
     print(last)
     return jsonify(first_name=first)
+
+
+
+@app.route('/api/exemplo', methods=['POST'])
+def exemplo():
+    json = request.get_json()
+    nome2 = json['nome']
+    categ2 = json['categ']
+    print(nome2)
+    print(categ2)
+    return jsonify(categ=categ2)
 
 
 @app.route('/api/say_name3', methods=['POST'])
